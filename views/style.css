@@ -1,0 +1,170 @@
+/* universal CSS */
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* option starts here */
+
+.option-container {
+  width: 95%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.option-icon i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #4a4c4d;
+  cursor: pointer;
+}
+
+.option-bar {
+  display: none;
+  gap: 30px;
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
+  box-shadow: 0px 0px 0.9310142993927002px 0px rgba(0, 0, 0, 0.17),
+    0px 0px 3.1270833015441895px 0px rgba(0, 0, 0, 0.08),
+    0px 7px 14px 0px rgba(0, 0, 0, 0.05);
+}
+
+.option-bar div {
+  cursor: pointer;
+}
+
+.pencil,
+.eraser,
+.undo,
+.redo,
+.download {
+  font-size: 1.2rem;
+  color: #4a4c4d;
+}
+
+.pencil-tool {
+  display: none;
+  padding: 10px 20px;
+  position: absolute;
+  left: 0%;
+  top: 170px;
+  flex-direction: column;
+  gap: 30px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 0.9310142993927002px 0px rgba(0, 0, 0, 0.17),
+    0px 0px 3.1270833015441895px 0px rgba(0, 0, 0, 0.08),
+    0px 7px 14px 0px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+
+.pencil-color-container {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+}
+
+.pencil-color-font {
+  color: #2f3542;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.8rem;
+}
+
+.pencil-color-box {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.pencil-color-box .black {
+  background-color: #1e1e1e;
+  width: 23px;
+  height: 23px;
+  border-radius: 3px;
+}
+
+.pencil-color-box .red {
+  background-color: #e03131;
+  width: 23px;
+  height: 23px;
+  border-radius: 3px;
+}
+
+.pencil-color-box .blue {
+  background-color: #1971c2;
+  width: 23px;
+  height: 23px;
+  border-radius: 3px;
+}
+
+.pencil-color-box .yellow {
+  background-color: #f08c00;
+  width: 23px;
+  height: 23px;
+  border-radius: 3px;
+}
+
+.pencil-width-container {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+}
+
+.pencil-width-container p {
+  color: #2f3542;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.8rem;
+}
+
+.eraser-tool {
+  display: none;
+  padding: 10px 20px;
+  position: absolute;
+  left: 0%;
+  top: 170px;
+  flex-direction: column;
+  gap: 30px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 0.9310142993927002px 0px rgba(0, 0, 0, 0.17),
+    0px 0px 3.1270833015441895px 0px rgba(0, 0, 0, 0.08),
+    0px 7px 14px 0px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+
+.eraser-width-container {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+}
+
+.eraser-width-container p {
+  color: #2f3542;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.8rem;
+}
+
+canvas {
+  position: absolute;
+  top: 0%;
+  z-index: 1;
+}

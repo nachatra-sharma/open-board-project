@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Board Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="option-container">
+        <div class="option-icon">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="option-bar">
+          <div>
+            <i class="fa-solid fa-pen-nib pencil"></i>
+            <div class="pencil-tool">
+              <div class="pencil-color-container">
+                <div class="pencil-color-font">
+                  <p>Stroke</p>
+                </div>
+                <div class="pencil-color-box">
+                  <div class="black pencil-color"></div>
+                  <div class="blue pencil-color"></div>
+                  <div class="red pencil-color"></div>
+                  <div class="yellow pencil-color"></div>
+                </div>
+              </div>
+              <div class="pencil-width-container">
+                <p>Stroke Width</p>
+                <input
+                  type="range"
+                  name="width"
+                  id="pencil-width"
+                  min="2"
+                  max="10"
+                  value="3"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <i class="fa-solid fa-eraser eraser"></i>
+            <div class="eraser-tool">
+              <div class="eraser-width-container">
+                <p>Eraser Width</p>
+                <input
+                  type="range"
+                  name="width"
+                  id="eraser-width"
+                  min="2"
+                  max="10"
+                  value="3"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <i class="fa-solid fa-rotate-left undo"></i>
+          </div>
+          <div>
+            <i class="fa-solid fa-rotate-right redo"></i>
+          </div>
+          <div>
+            <i class="fa-solid fa-download download"></i>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <canvas></canvas>
+    </div>
+  </body>
+  <!-- socket io -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- custom javascript -->
+  <script src="script.js"></script>
+  <script src="tools.js"></script>
+  <!-- font awesome CDN -->
+  <script
+    src="https://kit.fontawesome.com/f50fdb34c0.js"
+    crossorigin="anonymous"
+  ></script>
+</html>
