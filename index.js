@@ -25,6 +25,18 @@ io.on("connection", (socket) => {
   socket.on("redo", (data) => {
     io.emit("redo", data);
   });
+
+  socket.on("stroke-width", (data) => {
+    io.emit("stroke-width", data);
+  });
+
+  socket.on("eraser-width", (data) => {
+    io.emit("eraser-width", data);
+  });
+
+  socket.on("stroke-color", (data) => {
+    io.emit("stroke-color", data);
+  });
 });
 
 app.get("/", (req, res) => {

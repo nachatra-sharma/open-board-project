@@ -113,30 +113,41 @@ pencilColors.forEach((colorElem) => {
     if (colorObject[color]) {
       pencilColor = colorObject[color];
       c.strokeStyle = pencilColor;
+      socket.emit("stroke-color", c.strokeStyle);
     }
   });
 });
 
 pencilWidthElem.addEventListener("change", () => {
-  pencilWidth = pencilWidthElem.value;
-  c.lineWidth = pencilWidth;
+  if (pencilWidthElem) {
+    pencilWidth = pencilWidthElem.value;
+    c.lineWidth = pencilWidth;
+    socket.emit("stroke-width", c.lineWidth);
+  }
 });
 
 eraserWidthElem.addEventListener("change", () => {
   eraserWidth = eraserWidthElem.value;
   c.lineWidth = eraserWidth;
+  socket.emit("eraser-width", c.lineWidth);
 });
 
-eraser.addEventListener("click", () => {
+function strokeEraserWidth(data) {
   const displayValue = getComputedStyle(eraserTool).display;
-  if (displayValue !== "none") {
+  if (displayValue !== "none" || data.eraserWidth) {
     c.strokeStyle = eraserColor;
-    c.lineWidth = eraserWidth;
+    c.lineWidth = data.eraserWidth;
   } else {
-    c.strokeStyle = pencilColor;
-    c.lineWidth = pencilWidth;
+    c.strokeStyle = data;
+    c.lineWidth = data;
   }
+}
+
+eraser.addEventListener("click", () => {
+  strokeEraserWidth(pencilWidth);
 });
+
+// download here
 
 download.addEventListener("click", () => {
   let url = canvas.toDataURL();
@@ -145,6 +156,8 @@ download.addEventListener("click", () => {
   a.download = "board.jpg";
   a.click();
 });
+
+// socket code here
 
 socket.on("begin-path", (data) => {
   function beginPath(e) {
@@ -168,4 +181,16 @@ socket.on("undo", (data) => {
 
 socket.on("redo", (data) => {
   undoRedoCanvas(data);
+});
+
+socket.on("stroke-width", (data) => {
+  strokeEraserWidth(data);
+});
+
+socket.on("eraser-width", (data) => {
+  strokeEraserWidth({ eraserWidth: data });
+});
+
+socket.on("stroke-color", (data) => {
+  strokeEraserWidth(data);
 });
