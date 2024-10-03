@@ -11,11 +11,11 @@ app.use("/", express.static(__dirname + "/views"));
 
 io.on("connection", (socket) => {
   socket.on("begin-path", (data) => {
-    io.emit("begin-path", data);
+    socket.broadcast.emit("begin-path", data);
   });
 
   socket.on("draw-stroke", (data) => {
-    io.emit("draw-stroke", data);
+    socket.broadcast.emit("draw-stroke", data);
   });
 
   socket.on("undo", (data) => {

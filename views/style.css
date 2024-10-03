@@ -6,6 +6,10 @@
   user-select: none;
 }
 
+body {
+  overflow: hidden;
+}
+
 #wrapper {
   width: 100vw;
   height: 100vh;
