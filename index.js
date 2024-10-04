@@ -19,11 +19,11 @@ io.on("connection", (socket) => {
   });
 
   socket.on("undo", (data) => {
-    io.emit("undo", data);
+    socket.broadcast.emit("undo", data);
   });
 
   socket.on("redo", (data) => {
-    io.emit("redo", data);
+    socket.broadcast.emit("redo", data);
   });
 
   socket.on("stroke-width", (data) => {
